@@ -56,4 +56,25 @@ public class MultiBox<X, Y, Z> {
 }
 ```
 
-## 
+## Benefits
+* **Improved readability**  
+An instantiation with type arguments is more informative and improves the readability of the source code.
+ 
+* **Better tool support**  
+Providing type arguments enables development tools to support you more effectively: IDEs (= integrated development environments) can offer more precise context-sensitive information; incremental compilers can flag type errors the moment you type in the incorrect source code.  Without providing type arguments the errors would  go undetected until you start testing your program.
+ 
+* **Fewer ClassCastExceptions**  
+Type arguments enable the compiler to perform static type checks to ensure type safety at compile time, as opposed to dynamic type checks performed by the virtual machine at runtime.  As a result there are fewer opportunities for the program to raise a ClassCastException .
+
+* **Fewer casts**  
+More specific type information is available when type arguments are provided, so that hardly any casts are needed compared to the substantial number of casts that clutter the source code when raw types are used.
+
+* **No unchecked warnings**  
+Raw types lead to "unchecked" warning, which can be prevented by use of type arguments.
+
+* **No future deprecation**  
+The Java Language Specification states that raw types might be deprecated in a future version of Java, and might ultimately be withdrawn as a language feature.
+
+
+## Links
+* http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html

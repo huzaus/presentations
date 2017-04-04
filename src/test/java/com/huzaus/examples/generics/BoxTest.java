@@ -8,7 +8,7 @@ import org.junit.Test;
 public class BoxTest {
 
     @Test
-    public void nonGenericExample() {
+    public void nonGenericRawExample() {
         Box rawBox = new Box();
         rawBox.put("Hello");
 
