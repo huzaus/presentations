@@ -11,4 +11,14 @@ public class Box<T> {
     public T get() {
         return t;
     }
+
+    public <S> S cast(T t) {
+        return (S) t;
+    }
+
+    public static <T> Box<T> boxed(T t) {
+        Box<T> box = new Box<>();
+        box.put(t);
+        return box;
+    }
 }
