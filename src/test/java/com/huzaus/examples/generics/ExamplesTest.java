@@ -26,4 +26,10 @@ public class ExamplesTest {
 
 //        list.add();
     }
+
+    @Test
+    public void questionFour() {
+//      PECS
+//      Collections.max();
+    }
 }

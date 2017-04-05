@@ -99,6 +99,7 @@ The Java Language Specification states that raw types might be deprecated in a f
 * ```List<? super Number> list; list.add(?)```
 * ```List<?> list; list.add(?)```
   
+* Where we should use super/extend ? (PECS)
   
 ## Links
 * http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html
