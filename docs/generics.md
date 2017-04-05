@@ -82,7 +82,7 @@ The Java Language Specification states that raw types might be deprecated in a f
 * ```Something<A> extends BaseSomething<A, Something<A>>```
 
 ## Erasure
-* Information about generic almost is not available at runtime.  
+* Information about generic *almost* is not available at runtime.  
 ```
 <T> -> Object  
 <T super Number> -> T  
@@ -98,6 +98,7 @@ The Java Language Specification states that raw types might be deprecated in a f
 * ```List<? extends Number> list; list.add(?)```
 * ```List<? super Number> list; list.add(?)```
 * ```List<?> list; list.add(?)```
+  
   
 ## Links
 * http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html
