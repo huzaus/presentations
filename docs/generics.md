@@ -85,7 +85,7 @@ The Java Language Specification states that raw types might be deprecated in a f
 * Information about generic *almost* is not available at runtime.  
 ```
 <T> -> Object  
-<T super Number> -> T  
+<T super Number> -> Object  
 <T extends Number> -> Number  
 <T extends Comparable<T>> -> Comparable
 <T extends Cloneable & Comparable<T>> ->Cloneable
