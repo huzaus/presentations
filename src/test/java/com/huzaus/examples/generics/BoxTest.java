@@ -11,6 +11,7 @@ public class BoxTest {
     public void nonGenericRawExample() {
         Box rawBox = new Box();
         rawBox.put("Hello");
+        rawBox.put(15);
 
         assertThat(rawBox.get())
 //            .hasSize(5)

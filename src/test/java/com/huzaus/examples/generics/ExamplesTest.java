@@ -9,27 +9,23 @@ public class ExamplesTest {
     @Test
     public void questionOne() {
         List<? extends Number> list = new ArrayList<>();
-
-        //list.add()
+//        list.add(?);
     }
 
     @Test
     public void questionTwo() {
         List<? super Number> list = new ArrayList<>();
-
-        //list.add();
+//        list.add(?);
     }
 
     @Test
     public void questionThree() {
         List<?> list = new ArrayList<>();
-
-//        list.add();
+//        list.add(?);
     }
 
     @Test
     public void questionFour() {
 //      PECS
-//      Collections.max();
     }
 }
