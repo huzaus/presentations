@@ -75,6 +75,29 @@ Raw types lead to "unchecked" warning, which can be prevented by use of type arg
 * **No future deprecation**  
 The Java Language Specification states that raw types might be deprecated in a future version of Java, and might ultimately be withdrawn as a language feature.
 
+## Advanced generics: Wildcard, Recursive
+* ```<? extends Something>``` 
+* ```<? super Something>```
+* ```<?>``` 
+* ```Something<A> extends BaseSomething<A, Something<A>>```
 
+## Erasure
+* Information about generic almost is not available at runtime.  
+```
+<T> -> Object  
+<T super Number> -> T  
+<T extends Number> -> Number  
+<T extends Comparable<T>> -> Comparable
+<T extends Cloneable & Comparable<T>> ->Cloneable
+<T extends Object & Comparable<T>> -> Object
+<S, T extends S> -> Object,Object
+```
+  
+## Examples and Questions
+
+* ```List<? extends Number> list; list.add(?)```
+* ```List<? super Number> list; list.add(?)```
+* ```List<?> list; list.add(?)```
+  
 ## Links
 * http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html
