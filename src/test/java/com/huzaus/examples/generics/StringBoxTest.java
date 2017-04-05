@@ -10,8 +10,7 @@ public class StringBoxTest {
     @Test
     public void stringBoxExample() {
         StringBox stringBox = new StringBox();
-        stringBox.put("hello")
-        ;
+        stringBox.put("hello");
         assertThat(stringBox.get())
             .hasSize(5)
             .isNull();
