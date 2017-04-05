@@ -76,10 +76,10 @@ Raw types lead to "unchecked" warning, which can be prevented by use of type arg
 The Java Language Specification states that raw types might be deprecated in a future version of Java, and might ultimately be withdrawn as a language feature.
 
 ## Advanced generics: Wildcard, Recursive
-* ```<? extends Something>``` 
-* ```<? super Something>```
-* ```<?>``` 
-* ```Something<A> extends BaseSomething<A, Something<A>>```
+* ```<? extends Something>```  Upper bound 
+* ```<? super Something>``` Lower bound
+* ```<?>``` Unknown 
+* ```Something<A> extends BaseSomething<A, Something<A>>``` Recursive
 
 ## Erasure
 * Information about generic *almost* is not available at runtime.  
