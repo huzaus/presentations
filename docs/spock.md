@@ -28,8 +28,17 @@ def "test/feature method name" () {} // `@Test`
 
 ### `assert` vs AssertJ/Hamcrest
 
+* readability
+* error reporting
+
 ### Spock vs Mockito/EasyMock
+
+* stubing
+* mocking
 
 ### Spock vs JUnitParams/Parameterized
 
 ## Configuration
+
+* gmavenplus
+* surefire
