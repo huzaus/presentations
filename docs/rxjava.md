@@ -5,8 +5,7 @@
 ## Flow Control  
 
 * Sampling Throttling Distinct 
-* Buffering and Moving Window
-* Batching
+* Batching Buffering/Moving Window
 * Debounce
 
 ## Backpressure
