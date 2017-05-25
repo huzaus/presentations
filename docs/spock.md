@@ -2,7 +2,7 @@
 ![spock](https://en.wikipedia.org/wiki/File:Zachary_Quinto_Comic-Con_2010.jpg)
 
 ## Groovy vs Java
-![twins](https://en.wikipedia.org/wiki/File:Twins_Poster.jpg)
+![Groovy&Java](https://en.wikipedia.org/wiki/File:Twins_Poster.jpg)
 
 [Differences with Java](http://groovy-lang.org/differences.html)  
 [groovy style-guide](http://groovy-lang.org/style-guide.html)  
@@ -30,13 +30,22 @@ def "test/feature method name" () {} // `@Test`
 
 * readability
 * error reporting
+https://yermilov.github.io/spock-talk/#spock_assertions  
 
 ### Spock vs Mockito/EasyMock
 
-* stubing
-* mocking
+* stubbing
+* mocking  
+http://spockframework.org/spock/docs/1.1-rc-4/all_in_one.html#_interaction_based_testing  
+http://spockframework.org/spock/docs/1.1-rc-4/all_in_one.html#GroovyMocks  
 
 ### Spock vs JUnitParams/Parameterized
+
+https://github.com/Pragmatists/JUnitParams  
+https://yermilov.github.io/spock-talk/#data_driven_tests  
+ 
+@Mock (answer = Answers.RETURNS_DEEP_STUBS)  
+https://idodevjobs.wordpress.com/2015/04/09/mockito-deep-stubs-example/  
 
 ## Configuration
 
@@ -44,7 +53,7 @@ def "test/feature method name" () {} // `@Test`
 * surefire
 
 ## Links
- [spock github](https://github.com/spockframework/spock/)  
+ [spock github](https://github.com/spockframework/spock)  
  [groovy old](https://github.com/groovy/groovy-core)  
  [groovy new](https://github.com/apache/groovy)
-
+ [spock talk](https://yermilov.github.io/spock-talk)
