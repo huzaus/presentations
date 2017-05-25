@@ -12,8 +12,7 @@ public class StringBoxTest {
         StringBox stringBox = new StringBox();
         stringBox.put("hello");
         assertThat(stringBox.get())
-            .hasSize(5)
-            .isNull();
+            .hasSize(5);
     }
 
 }
