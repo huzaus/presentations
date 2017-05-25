@@ -4,8 +4,8 @@
  
 ## Flow Control  
 
-* Sampling(throttling,distinct,window) 
-* Buffering(by time, by count)
+* Sampling Throttling Distinct 
+* Buffering and Moving Window
 * Batching
 * Debounce
 
