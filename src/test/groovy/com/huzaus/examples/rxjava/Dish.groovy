@@ -1,7 +1,7 @@
 package com.huzaus.examples.rxjava
 
 class Dish {
-    final byte[] oneKb = new byte[1024]
+    final byte[] tenKb = new byte[1024 * 1024]
     int id
 
     Dish(int id) {
