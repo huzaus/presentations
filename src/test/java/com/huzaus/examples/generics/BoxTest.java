@@ -15,13 +15,14 @@ public class BoxTest {
 
         assertThat(rawBox.get())
 //            .hasSize(5)
-            .isEqualTo("Hello");
+            .isEqualTo(15);
     }
 
     @Test
     public void genericExample() {
         Box<String> rawBox = new Box<>();
         rawBox.put("Hello");
+//        rawBox.put(15);
 
         assertThat(rawBox.get())
             .hasSize(5)
@@ -31,7 +32,6 @@ public class BoxTest {
     @Test
     public void explicitTypeArgument() {
         assertThat(Box.<String>boxed(null).get())
-            .hasSize(5)
             .isNull();
     }
 
