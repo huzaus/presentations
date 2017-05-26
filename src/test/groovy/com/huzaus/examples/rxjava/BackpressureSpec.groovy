@@ -8,9 +8,12 @@ import spock.lang.Specification
 
 class BackpressureSpec extends Specification {
 
+    // https://www.lightbend.com/blog/7-ways-washing-dishes-and-message-driven-reactive-systems
+
     def "Custom slow consumer unsafe example"() {
-        expect:
-            Observable.unsafeCreate(
+        expect: "what will happen?"
+            Observable.create(
+//            Observable.unsafeCreate(
                     { subscriber ->
                         (1..100).forEach(
                                 { id -> subscriber.onNext(new Dish(id)) }
@@ -32,9 +35,9 @@ class BackpressureSpec extends Specification {
 
 
     def "Slow consumer with build-in backpressure example"() {
-        expect:
+        expect: "what will happen?"
             Observable
-                    .range(1, 100)
+                    .range(1, 200)
                     .map({ new Dish(it) })
                     .observeOn(Schedulers.io())
                     .subscribe(
@@ -42,8 +45,12 @@ class BackpressureSpec extends Specification {
                         println "Washing: ${it}"
                         sleep(50L)
                     })
+
+
             sleep(10_000L)
     }
+
+
 
 
 
@@ -54,7 +61,7 @@ class BackpressureSpec extends Specification {
     def "Slow consumer with build-in backpressure with custom feedback example"() {
         expect:
             Observable
-                    .range(1, 100)
+                    .range(1, 200)
                     .map({ new Dish(it) })
                     .observeOn(Schedulers.io())
                     .subscribe(new CustomSubscriber())
@@ -86,4 +93,26 @@ class BackpressureSpec extends Specification {
         }
     }
 
+
+
+    def "Custom slow consumer unsafe example with backpressure"() {
+        expect:
+            Observable.unsafeCreate(
+                    { subscriber ->
+                        (1..200).forEach(
+                                { id -> subscriber.onNext(new Dish(id)) }
+                        )
+                        subscriber.onCompleted()
+                    })
+                    .onBackpressureBuffer()
+//                    .onBackpressureDrop()
+//                    .onBackpressureLatest()
+                    .subscribe(
+                    { dish ->
+                        println "Washing: ${dish}"
+                        sleep(50L)
+                    })
+
+            sleep(10_000L)
+    }
 }
