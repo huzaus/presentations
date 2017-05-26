@@ -14,7 +14,7 @@ class SamplingSpec extends Specification {
     long interval = 10L
 
     def "Time stamp sampling example"() {
-        given:
+        given: 'Observable that emits timestamp every 10ms'
         long startTime = System.currentTimeMillis()
         Observable timestamp = Observable
                 .interval(interval, MILLISECONDS)
@@ -22,7 +22,7 @@ class SamplingSpec extends Specification {
 //                .map({ timestamp -> "${timestamp.time() - startTime}ms: ${(timestamp.value() + 1)}" })
                 .map({ timestamp -> "${timestamp.timestampMillis - startTime}ms: ${(timestamp.value)}" })
 
-        expect:
+        expect: 'Sampling one event per second'
         println 'Sample:'
         timestamp
                 .sample(1L, SECONDS)
@@ -33,7 +33,7 @@ class SamplingSpec extends Specification {
     }
 
     def "Time stamp throttle first example"() {
-        given:
+        given: "Observable that emits timestamp every 10ms"
         long startTime = System.currentTimeMillis()
         Observable timestamp = Observable
                 .interval(interval, MILLISECONDS)
@@ -42,7 +42,7 @@ class SamplingSpec extends Specification {
 //                .map({ timestamp -> "${timestamp.time() - startTime}ms: ${(timestamp.value() + 1)}" })
 
         expect:
-        println 'Throttle First:'
+        println 'Throttling first event from one second interval'
         timestamp
                 .throttleFirst(1L, SECONDS)
                 .take(5)
@@ -51,8 +51,15 @@ class SamplingSpec extends Specification {
 //                .blockingSubscribe({ println it })
     }
 
+
+
+
+
+
+
+
     def "Time stamp sampling example with test scheduler and test subscriber"() {
-        given:
+        given: "Observable that emits timestamp every 10ms"
             TestScheduler scheduler = Schedulers.test()
             TestSubscriber subscriber = TestSubscriber.create()
             Observable timestamp = Observable
