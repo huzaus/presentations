@@ -30,10 +30,6 @@ class BackpressureSpec extends Specification {
     }
 
 
-
-
-
-
     def "Slow consumer with build-in backpressure example"() {
         expect: "what will happen?"
             Observable
@@ -49,13 +45,6 @@ class BackpressureSpec extends Specification {
 
             sleep(10_000L)
     }
-
-
-
-
-
-
-
 
 
     def "Slow consumer with build-in backpressure with custom feedback example"() {
@@ -77,7 +66,7 @@ class BackpressureSpec extends Specification {
         }
 
         @Override
-        void onCompleted()            {
+        void onCompleted() {
             println 'done'
         }
 
@@ -92,7 +81,6 @@ class BackpressureSpec extends Specification {
             println item
         }
     }
-
 
 
     def "Custom slow consumer unsafe example with backpressure"() {

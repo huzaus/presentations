@@ -15,47 +15,41 @@ class SamplingSpec extends Specification {
 
     def "Time stamp sampling example"() {
         given: 'Observable that emits timestamp every 10ms'
-        long startTime = System.currentTimeMillis()
-        Observable timestamp = Observable
-                .interval(interval, MILLISECONDS)
-                .timestamp()
+            long startTime = System.currentTimeMillis()
+            Observable timestamp = Observable
+                    .interval(interval, MILLISECONDS)
+                    .timestamp()
 //                .map({ timestamp -> "${timestamp.time() - startTime}ms: ${(timestamp.value() + 1)}" })
-                .map({ timestamp -> "${timestamp.timestampMillis - startTime}ms: ${(timestamp.value)}" })
+                    .map({ timestamp -> "${timestamp.timestampMillis - startTime}ms: ${(timestamp.value)}" })
 
         expect: 'Sampling one event per second'
-        println 'Sample:'
-        timestamp
-                .sample(1L, SECONDS)
-                .take(5)
-                .toBlocking()
-                .subscribe({ println it })
+            println 'Sample:'
+            timestamp
+                    .sample(1L, SECONDS)
+                    .take(5)
+                    .toBlocking()
+                    .subscribe({ println it })
 //                .blockingSubscribe({ println it })
     }
 
     def "Time stamp throttle first example"() {
         given: "Observable that emits timestamp every 10ms"
-        long startTime = System.currentTimeMillis()
-        Observable timestamp = Observable
-                .interval(interval, MILLISECONDS)
-                .timestamp()
-                .map({ timestamp -> "${timestamp.timestampMillis - startTime}ms: ${(timestamp.value)}" })
+            long startTime = System.currentTimeMillis()
+            Observable timestamp = Observable
+                    .interval(interval, MILLISECONDS)
+                    .timestamp()
+                    .map({ timestamp -> "${timestamp.timestampMillis - startTime}ms: ${(timestamp.value)}" })
 //                .map({ timestamp -> "${timestamp.time() - startTime}ms: ${(timestamp.value() + 1)}" })
 
         expect:
-        println 'Throttling first event from one second interval'
-        timestamp
-                .throttleFirst(1L, SECONDS)
-                .take(5)
-                .toBlocking()
-                .subscribe({ println it })
+            println 'Throttling first event from one second interval'
+            timestamp
+                    .throttleFirst(1L, SECONDS)
+                    .take(5)
+                    .toBlocking()
+                    .subscribe({ println it })
 //                .blockingSubscribe({ println it })
     }
-
-
-
-
-
-
 
 
     def "Time stamp sampling example with test scheduler and test subscriber"() {
