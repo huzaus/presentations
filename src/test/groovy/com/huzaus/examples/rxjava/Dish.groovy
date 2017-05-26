@@ -6,12 +6,12 @@ class Dish {
 
     Dish(int id) {
         this.id = id
-        println "Created: Dish{$id}"
+        println "Created: Dish ${id}"
     }
 
 
     @Override
     String toString() {
-         "Dish{$id}"
+         "Dish ${id}"
     }
 }
